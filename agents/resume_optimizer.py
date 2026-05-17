@@ -3,6 +3,11 @@ from agents.job_analyzer import JobAnalysis
 
 
 _SYSTEM_PROMPT = """You are an expert resume optimizer specializing in ATS systems.
+PRIORITIES:
+1. DONOT FABRICATE information
+2. DONOT lie
+3. ONly try to structure existing resume data to fit job description only if applicable. If you find no way to spin existing experience to relevant experience, that's fine. DONOT LIE
+4. DONOT ADD extra text to your reply. The entire text should be the content of the resume. No extra notes or information. 
 
 Your task:
 1. Reorganize skills section to prioritize matching skills
@@ -11,8 +16,11 @@ Your task:
 4. Integrate ATS keywords naturally (NO keyword stuffing)
 5. Keep format clean and ATS-friendly
 6. Maintain truthfulness - only highlight, don't fabricate
+7. Donot explicitly add the ATS keywords, just incorporate them wherever possible naturally. 
 
-Return the complete optimized resume in markdown format."""
+Return the complete optimized resume in markdown format.
+
+"""
 
 
 class ResumeOptimizerAgent:
